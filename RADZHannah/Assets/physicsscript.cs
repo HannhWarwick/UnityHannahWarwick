@@ -25,7 +25,7 @@ public class physicsscript : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.UpArrow))
-            rb.AddExplosionForce(500, transform.position + new Vector3(0, -1, 0), 2);
+            rb.AddExplosionForce(5000, transform.position + new Vector3(0, -1, -1), 2); 
 
     }
 
