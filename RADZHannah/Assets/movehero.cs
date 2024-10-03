@@ -6,6 +6,7 @@ using UnityEngine;
 public class movehero : MonoBehaviour
 {
     Animator animator;
+    Collider Collider;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,16 @@ public class movehero : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             transform.Rotate(Vector3.up, -30 * Time.deltaTime);
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        collision.gameObject.transform.position += Vector3.forward;
+        Footballscript myFootball = collision.gameObject.GetComponent<Footballscript>();
+        if (myFootball != null)
+        {
+            myFootball.kick();
+        }
     }
 }
     
