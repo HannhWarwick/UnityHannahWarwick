@@ -4,7 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class movehero : MonoBehaviour
-{
+{ 
+    public GameObject snowballClonTemplate;
+
     Animator animator;
     Collider Collider;
     // Start is called before the first frame update
@@ -18,6 +20,12 @@ public class movehero : MonoBehaviour
 
     {
         animator.SetBool("isRunning", false);
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject newSnowballGO = Instantiate(snowballClonTemplate, transform.position + transform.forward + Vector3.up, Quaternion.identity);
+            snowballl myNewSnowball = newSnowballGO.GetComponent<snowballl>();
+            myNewSnowball.throwSnowball(transform);
+        }
 
 
         if (Input.GetKey(KeyCode.W))
@@ -43,6 +51,11 @@ public class movehero : MonoBehaviour
         {
             myFootball.kick();
         }
+
     }
+
+
+
+
 }
     
